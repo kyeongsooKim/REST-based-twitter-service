@@ -2,7 +2,25 @@
 ### Kyeongsoo Kim, Feb 2018 ~ Present
 
 ## Introduction
- REST-based Twitter service and API using `NodeJS`, `ExpressJS`, `MongoDB`, `Cassandra`, `handlebarsJS`.
+ REST-based Twitter service and API using `NodeJS`, `Cassandra`,`MongoDB`, `memcached`, `ExpressJS`, `handlebarsJS`.
+
+## IP QOS (Quality Of Service)
+
+![](qos.jpg)
+
+
+## Database Setup
+`Cassandra`
+- Install Cassandra 2.2(22x)
+- Create “db” keyspace (replication factor 1 with Simple Strategy)
+- Create a table “media” that includes a id (text) and content (blob) columns
+- use localhost
+
+`MongoDB`
+- use localhost
+
+`Memcached`
+- use localhost
 
 ## REST API
 - There are 16 route endpoints
@@ -56,8 +74,8 @@ Verifies account
 Master key : avadacadabra
 
 Returns:
-status: “OK” or “error”
-error: error message (if error)
+    status: “OK” or “error”
+    error: error message (if error)
 </pre>
 
 
@@ -121,4 +139,42 @@ Returns
     items: Array of item objects (see /item/:id)
     error: error message (if error)
 
+</pre>
+
+### /item/< id >/like
+<pre>
+Method : POST
+Request Params
+    - like:
+        - Boolean
+        - Default: true
+    
+Likes or unlikes a item ID
+
+Returns
+    status: “OK” or “error”
+</pre>
+
+### /addmedia
+<pre>
+Method : POST
+Request Params
+    - content: binary content of file being uploaded
+        - Type is multipart/form-data
+
+Adds a media file (photo or video)
+
+Returns
+    status: “OK” or “error”
+    id: ID of uploaded media
+    error: error message (if error)
+</pre>
+
+
+### /media/<id>
+<pre>
+Method : GET
+
+Gets media file by ID
+Returns media file (image or video)
 </pre>
