@@ -6,7 +6,12 @@
 
 ## IP QOS (Quality Of Service)
 
+- using one machine
 ![](qos.jpg)
+
+- using several machine with NGINX, MongoDB Cluster
+
+![](qos2.jpg)
 
 
 ## Database Setup
