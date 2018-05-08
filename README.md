@@ -1,20 +1,25 @@
 # REST-based Twitter service
 ### Kyeongsoo Kim, Feb 2018 ~ Present
 
-## Introduction
+# Introduction
  REST-based Twitter service and API using `NodeJS`, `Cassandra`,`MongoDB`, `memcached`, `ExpressJS`, `handlebarsJS`.
 
-## IP QOS (Quality Of Service)
+# IP QOS (Quality Of Service)
 
-- using one machine
+
 ![](qos.jpg)
+ - using one machine
 
-- using several machine with NGINX, MongoDB Cluster
+
+
 
 ![](qos2.jpg)
 
+- QOS in Distributed System (at least 4 machines) with NGINX, MongoDB Cluster
 
-## Database Setup
+> Code for multiple machine version is [here](https://github.com/samleung314/TwitterClone/graphs/contributors)
+
+# Database Setup
 `Cassandra`
 - Install Cassandra 2.2(22x)
 - Create “db” keyspace (replication factor 1 with Simple Strategy)
@@ -27,7 +32,8 @@
 `Memcached`
 - use localhost
 
-## REST API
+# REST API
+
 - There are 16 route endpoints
 - POST parameters are JSON (application/json)
 
